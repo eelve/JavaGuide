@@ -1,3 +1,5 @@
+点击关注[公众号](#公众号)及时获取笔主最新更新文章，并可免费领取本文档配套的《Java面试突击》以及Java工程师必备学习资源。
+
 <!-- TOC -->
 
 - [控制反转(IoC)和依赖注入(DI)](#控制反转ioc和依赖注入di)
@@ -30,7 +32,7 @@ Design Patterns(设计模式) 表示面向对象软件开发中最好的计算�
 
 **IoC(Inversion of Control,控制翻转)** 是Spring 中一个非常非常重要的概念，它不是什么技术，而是一种解耦的设计思想。它的主要目的是借助于“第三方”(Spring 中的 IOC 容器) 实现具有依赖关系的对象之间的解耦(IOC容易管理对象，你只管使用即可)，从而降低代码之间的耦合度。**IOC 是一个原则，而不是一个模式，以下模式（但不限于）实现了IoC原则。**
 
-![ioc-patterns](http://pqrlmrv7w.bkt.clouddn.com/img/2019-4/ioc-patterns.png)
+![ioc-patterns](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/ioc-patterns.png)
 
 **Spring IOC 容器就像是一个工厂一样，当我们需要创建一个对象的时候，只需要配置好配置文件/注解即可，完全不用考虑对象是如何被创建出来的。** IOC 容器负责创建对象，将对象连接在一起，配置这些对象，并从创建中处理这些对象的整个生命周期，直到它们被完全销毁。
 
@@ -46,7 +48,7 @@ Spring使用工厂模式可以通过 `BeanFactory` 或 `ApplicationContext` 创�
 
 **两者对比：**
 
--  `BeanFactory` ：延迟注入(使用到某个 bean 的时候才会注入),相比于`BeanFactory` 来说会占用更少的内存，程序启动速度更快。
+-  `BeanFactory` ：延迟注入(使用到某个 bean 的时候才会注入),相比于`ApplicationContext` 来说会占用更少的内存，程序启动速度更快。
 - `ApplicationContext` ：容器启动的时候，不管你用没用到，一次性创建所有 bean 。`BeanFactory` 仅提供了最基本的依赖注入支持，` ApplicationContext` 扩展了 `BeanFactory` ,除了有`BeanFactory`的功能还有额外更多功能，所以一般开发人员使用` ApplicationContext`会更多。
 
 ApplicationContext的三个实现类：
@@ -134,7 +136,7 @@ AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无�
 
 **Spring AOP 就是基于动态代理的**，如果要代理的对象，实现了某个接口，那么Spring AOP会使用**JDK Proxy**，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候Spring AOP会使用**Cglib** ，这时候Spring AOP会使用 **Cglib** 生成一个被代理对象的子类来作为代理，如下图所示：
 
-![SpringAOPProcess](http://pqrlmrv7w.bkt.clouddn.com/img/2019-4/SpringAOPProcess.jpg)
+![SpringAOPProcess](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/SpringAOPProcess.jpg)
 
 当然你也可以使用 AspectJ ,Spring AOP 已经集成了AspectJ  ，AspectJ  应该算的上是 Java 生态系统中最完整的 AOP 框架了。
 
@@ -206,7 +208,7 @@ Spring 中默认存在以下事件，他们都是对 `ApplicationContextEvent` �
 - `ContextRefreshedEvent`：`ApplicationContext` 初始化或刷新完成后触发的事件;
 - `ContextClosedEvent`：`ApplicationContext` 关闭后触发的事件。
 
-![ApplicationEvent-Subclass](http://pqrlmrv7w.bkt.clouddn.com/img/2019-4/ApplicationEvent-Subclass.png)
+![ApplicationEvent-Subclass](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/ApplicationEvent-Subclass.png)
 
 #### 事件监听者角色
 
@@ -323,7 +325,7 @@ if(mappedHandler.getHandler() instanceof MultiActionController){
 
 装饰者模式可以动态地给对象添加一些额外的属性或行为。相比于使用继承，装饰者模式更加灵活。简单点儿说就是当我们需要修改原有的功能，但我们又不愿直接去修改原有的代码时，设计一个Decorator套在原有代码外面。其实在 JDK 中就有很多地方用到了装饰者模式，比如 `InputStream`家族，`InputStream` 类下有 `FileInputStream` (读取文件)、`BufferedInputStream` (增加缓存,使读取文件速度大大提升)等子类都在不修改`InputStream` 代码的情况下扩展了它的功能。
 
-![装饰者模式示意图](http://pqrlmrv7w.bkt.clouddn.com/img/2019-4/Decorator.jpg)
+![装饰者模式示意图](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/Decorator.jpg)
 
 Spring 中配置 DataSource 的时候，DataSource 可能是不同的数据库和数据源。我们能否根据客户的需求在少修改原有类的代码下动态切换不同的数据源？这个时候就要用到装饰者模式(这一点我自己还没太理解具体原理)。Spring 中用到的包装器模式在类名上含有 `Wrapper`或者 `Decorator`。这些类基本上都是动态地给一个对象添加一些额外的职责
 
@@ -350,3 +352,12 @@ Spring 框架中用到了哪些设计模式？
 - <https://juejin.im/post/5a8eb261f265da4e9e307230>
 - <https://juejin.im/post/5ba28986f265da0abc2b6084>
 
+## 公众号
+
+如果大家想要实时关注我更新的文章以及分享的干货的话，可以关注我的公众号。
+
+**《Java面试突击》:** 由本文档衍生的专为面试而生的《Java面试突击》V2.0 PDF 版本[公众号](#公众号)后台回复 **"Java面试突击"** 即可免费领取！
+
+**Java工程师必备学习资源:** 一些Java工程师常用学习资源公众号后台回复关键字 **“1”** 即可免费无套路获取。 
+
+![我的公众号](https://my-blog-to-use.oss-cn-beijing.aliyuncs.com/2019-6/167598cd2e17b8ec.png)
